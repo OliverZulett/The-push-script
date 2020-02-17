@@ -32,8 +32,9 @@ if [ $confirmation = "y" ];
     if [ $confirmation = "y" ];
         then
         IFS= read -r -p "Nombre del repositorio: " remote_name;
-        IFS= read -r -p "Nombre de la rama: " branch_name;
-        git push $remote_name $branch_name;
+        IFS= read -r -p "Nombre de la rama remota: " remote_branch_name;
+        IFS= read -r -p "Nombre de la rama local: " local_branch_name;
+        git push $remote_name $local_branch_name:$remote_branch_name;
     else
         git push origin master;
     fi
