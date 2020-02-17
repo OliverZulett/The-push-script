@@ -1,0 +1,43 @@
+#!/usr/bin/bash
+
+# script echo en bash pash para automatizar la actualizacion de un repositorio remoto git.
+
+DAY=`date +"%d/%m/%Y"`;
+TIME=`date +"%H:%M"`;
+USR_NAME=`<your-user-name>`;
+
+git status;
+git diff -v;
+
+echo Actualizar repositorio? y/n:;
+
+read confirmation;
+
+if [ $confirmation = "y" ];
+    then 
+    DEFAULT_MESSAGE="Editado por: $USR_NAME en: $DAY a horas: $TIME";
+    git add .;
+    echo Agregar mensaje al commit? y/n;
+    read confirmation;
+    if [ $confirmation = "y" ];
+        then
+        IFS= read -r -p "Mensaje: " message;
+        git commit -m $DEFAULT_MESSAGE -m "$message";
+    else
+        git commit -m $DEFAULT_MESSAGE;
+    fi
+    echo Agregar cambios a un repositorio o rama diferente a Origin/Master? y/n;
+    read confirmation;
+    if [ $confirmation = "y" ];
+        then
+        IFS= read -r -p "Nombre del repositorio: " remote_name;
+        IFS= read -r -p "Nombre de la rama: " branch_name;
+        git push $remote_name $branch_name;
+    else
+        git push origin master;
+    fi
+    git status;
+    echo Repositorio actualizado;
+else
+    echo No se realizaron cambios;
+fi
