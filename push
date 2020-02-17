@@ -4,7 +4,7 @@
 
 DAY=`date +"%d/%m/%Y"`;
 TIME=`date +"%H:%M"`;
-USR_NAME=`<your-user-name>`;
+USR_NAME="<USR_NAME>";
 
 git status;
 git diff -v;
@@ -16,15 +16,16 @@ read confirmation;
 if [ $confirmation = "y" ];
     then 
     DEFAULT_MESSAGE="Editado por: $USR_NAME en: $DAY a horas: $TIME";
+    echo $DEFAULT_MESSAGE;
     git add .;
     echo Agregar mensaje al commit? y/n;
     read confirmation;
     if [ $confirmation = "y" ];
         then
         IFS= read -r -p "Mensaje: " message;
-        git commit -m $DEFAULT_MESSAGE -m "$message";
+        git commit -m "$DEFAULT_MESSAGE" -m "$message";
     else
-        git commit -m $DEFAULT_MESSAGE;
+        git commit -m "$DEFAULT_MESSAGE";
     fi
     echo Agregar cambios a un repositorio o rama diferente a Origin/Master? y/n;
     read confirmation;
@@ -41,3 +42,4 @@ if [ $confirmation = "y" ];
 else
     echo No se realizaron cambios;
 fi
+
