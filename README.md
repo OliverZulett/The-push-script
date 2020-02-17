@@ -52,14 +52,6 @@ _En el git commit te solicitara que ingreses un mensaje para el git commit, este
 
 _Una vez finalizado el git commit el script agregara de manera automática todos tus cambios y pasara a la parte del **git push** en la cual te dara la opción de subir los cambios a un repositorio diferente de Origin/Master, para lo cual te solicitara el nombre del repositorio así como la rama, el nombre del repositorio alternativo debe estar registrado en tu lista de git remote para que funcione._
 
-## Construido con 🛠️
-
-_Menciona las herramientas que utilizaste para crear tu proyecto_
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - El framework web usado
-* [Maven](https://maven.apache.org/) - Manejador de dependencias
-* [ROME](https://rometools.github.io/rome/) - Usado para generar RSS
-
 ## Contribuyendo 🖇️
 
 Quieres colaborar mejorando el codigo de **The Push Script** ? estoy a la espera de tu pull requests.
