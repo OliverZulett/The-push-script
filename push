@@ -4,7 +4,7 @@
 
 DAY=`date +"%d/%m/%Y"`;
 TIME=`date +"%H:%M"`;
-USR_NAME="<USR_NAME>";
+USR_NAME="<USR_NAME>"; #git config --list | grep user.name | cut -d "=" -f 2
 
 git status;
 git diff -v;
